@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <link rel="icon" href="http://127.0.0.1:5500/img/omnifood-logo.png" type="image/x-icon" />
+  
+  <title>Payment Gatway</title>
+  <link rel="stylesheet" href="../../static/style.css" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- ===== Link Swiper's CSS ===== -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/> -->
+  <!-- ===== Fontawesome CDN Link ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+body {
+  background-color: #fae5d3;
+}
+#header_text{
+  margin: 7rem;
+}
+#header_text>h2{
+  color: #d35400;
+  color: #333333; 
+
+}
+h2{
+  margin-top: 15px;
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 50px;
+  text-align: center;
+  color: #333333; /* Black color */
+}
+/* Courses Start */
+.dis-but h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: rgb(40, 40, 40);
+  text-align: center;
+}
+
+.dis-but .but-set-1 {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.dis-but .but-set-2 {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  justify-content: center;
+}
+
+.dis-but .but-set-1 button {
+  width: 120px;
+  border-radius: 5px;
+}
+
+.dis-but .but-set-2 button {
+  width: 120px;
+  border-radius: 5px;
+}
+
+.btntgl {
+  background-color: #C8C8C8;
+}
+
+header .container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: transparent;
+  border: 3px solid aqua;
+}
+
+.btn-primary:hover {
+  background-color: aqua;
+  border: 3px solid aqua;
+  color: black;
+}
+
+.cor-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px; 
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0; 
+  width: 90%;
+  margin-left:5%;
+
+}
+
+.cor {
+  background-color: #ffffff;
+  border: 2px solid #e67e22;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 25px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-out;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cor:hover {
+  transform: scale(1.05);
+  border-color: #e67e22;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cor-img {
+  height: 400px;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.dis-but h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.dis-but .but-set-1 button,
+.dis-but .but-set-2 button {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 5px;
+  background-color: #e67e22;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dis-but .but-set-1 button:hover,
+.dis-but .but-set-2 button:hover {
+  background-color: #d35400;
+}
+/* Additional styling for the "Pay Now" button */
+.pay-form input[type="submit"] {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 5px;
+  background-color: #27ae60; /* Green color */
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pay-form input[type="submit"]:hover {
+  background-color: #219653; /* Darker green color on hover */
+}
+
+
+</style>
+
+<body>
+  <center id="header_text">
+    <h2>FAMOUS CHEF IN OUR  RESTAURANT</h2>
+    <img src="http://127.0.0.1:5500/img/omnifood-logo.png" style="height:50px  ; " alt="">
+  </center>
+  <div class="cor-row">
+    <div class="cor">
+      <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1577&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="cheff1" class="cor-img">
+      <div class="dis-but">
+        <h2>Tenzin Zompa </h2>
+        <div class="but-set-1">
+          <a href="#"><button type="button" class="btn btn-outline-primary"
+              class="cor-buttons">Read More</button></a>
+          <form class="pay-form">
+            <input type="hidden" name="name" value="Buy">
+            <input type="hidden" name="amount" value="5999">
+            <input type="hidden" name="description" value="Course Buying">
+            <input type="submit" value="Pay Now" class="btn btn-outline-success">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="cor">
+      <img
+        src="https://plus.unsplash.com/premium_photo-1673830186289-b4d2619212b3?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="lain Ducasse" class="cor-img">
+      <div class="dis-but">
+        <h2>Alain Ducasse</h2>
+        <div class="but-set-1">
+          <a href="#"><button type="button" class="btn btn-outline-primary"
+              class="cor-buttons">Read More</button></a>
+          <form class="pay-form">
+            <input type="hidden" name="name" value="Buy">
+            <input type="hidden" name="amount" value="5999">
+            <input type="hidden" name="description" value="Course Buying">
+            <input type="submit" value="Pay Now" class="btn btn-outline-success">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="cor">
+      <img src="https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gordon Ramsay" class="cor-img">
+      <div class="dis-but">
+        <h2>Gordon Ramsay</h2>
+        <div class="but-set-1">
+          <a href="#"><button type="button" class="btn btn-outline-primary"
+              class="cor-buttons">Read More</button></a>
+          <form class="pay-form">
+            <input type="hidden" name="name" value="Buy">
+            <input type="hidden" name="amount" value="5999">
+            <input type="hidden" name="description" value="Course Buying">
+            <input type="submit" value="Pay Abhi" class="btn btn-outline-success">
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="cor-row">
+    <div class="cor">
+      <img src="https://images.unsplash.com/photo-1470114755716-3e1124c6c3bd?q=80&w=1398&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Thomas" class="cor-img">
+      <div class="dis-but">
+        <h2>Thomas Kelle </h2>
+        <div class="but-set-1">
+          <a href="#"><button type="button" class="btn btn-outline-primary"
+              class="cor-buttons">Read More</button></a>
+          <form class="pay-form">
+            <input type="hidden" name="name" value="Buy">
+            <input type="hidden" name="amount" value="5999">
+            <input type="hidden" name="description" value="Course Buying">
+            <input type="submit" value="Pay Now" class="btn btn-outline-success">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="cor">
+      <img
+        src="https://images.pexels.com/photos/2696064/pexels-photo-2696064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt="Jamie" class="cor-img">
+      <div class="dis-but">
+        <h2>Jamie Oliver</h2>
+        <div class="but-set-1">
+          <a href="#"><button type="button" class="btn btn-outline-primary"
+              class="cor-buttons">Read More</button></a>
+          <form class="pay-form">
+            <input type="hidden" name="name" value="Buy">
+            <input type="hidden" name="amount" value="5999">
+            <input type="hidden" name="description" value="Course Buying">
+            <input type="submit" value="Pay Now" class="btn btn-outline-success">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="cor">
+      <img
+      src="https://media.istockphoto.com/id/819640230/photo/chef-holding-delicious-dish-in-kitchen.jpg?s=1024x1024&w=is&k=20&c=8GSLlIwepTcn69tCjDkpK9Ff_ArrzuZJEUTNplTji1M="
+  
+        alt="Heston Blumenthal" class="cor-img">
+      <div class="dis-but">
+        <h2>Heston Blumenthal</h2>
+        <div class="but-set-1">
+          <a href="#"><button type="button" class="btn btn-outline-primary"
+              class="cor-buttons">Read More</button></a>
+          <form class="pay-form">
+            <input type="hidden" name="name" value="Buy">
+            <input type="hidden" name="amount" value="5999">
+            <input type="hidden" name="description" value="Course Buying">
+            <input type="submit" value="Pay Now" class="btn btn-outline-success">
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>const sidebar = document.querySelector(".sidebar");
+    const sidebarClose = document.querySelector("#sidebar-close");
+    const menu = document.querySelector(".menu-content");
+    const menuItems = document.querySelectorAll(".submenu-item");
+    const subMenuTitles = document.querySelectorAll(".submenu .menu-title");
+
+    sidebarClose.addEventListener("click", () => sidebar.classList.toggle("close"));
+
+    menuItems.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        menu.classList.add("submenu-active");
+        item.classList.add("show-submenu");
+        menuItems.forEach((item2, index2) => {
+          if (index !== index2) {
+            item2.classList.remove("show-submenu");
+          }
+        });
+      });
+    });
+
+    subMenuTitles.forEach((title) => {
+      title.addEventListener("click", () => {
+        menu.classList.remove("submenu-active");
+      });
+    });
+
+    console.log(menuItems, subMenuTitles);
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
+</body>
+
+</html>
+
+
+<!--Inside index.html -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+
+  $(document).ready(function () {
+    $('.pay-form').submit(function (e) {
+      e.preventDefault();
+
+      var formData = $(this).serialize();
+
+      $.ajax({
+        url: "/createOrder",
+        type: "POST",
+        data: formData,
+        success: function (res) {
+          if (res.success) {
+            var options = {
+              "key": "" + res.key_id + "",
+              "amount": "" + res.amount + "",
+              "currency": "INR",
+              "name": "" + res.product_name + "",
+              "description": "" + res.description + "",
+              "image": "https://st.depositphotos.com/1435425/4077/v/950/depositphotos_40771829-stock-illustration-indian-rupee-sign-golden-coin.jpg",
+              "order_id": "" + res.order_id + "",
+              "handler": function (response) {
+                alert("Payment Succeeded");
+                // window.open("/","_self")
+              },
+              "prefill": {
+                "contact": "" + res.contact + "",
+                "name": "" + res.name + "",
+                "email": "" + res.email + ""
+              },
+              "notes": {
+                "description": "" + res.description + ""
+              },
+              "theme": {
+                "color": "#cf711f"
+              }
+            };
+            var razorpayObject = new Razorpay(options);
+            razorpayObject.on('payment.failed', function (response) {
+              alert("Payment Failed");
+            });
+            razorpayObject.open();
+          }
+          else {
+            alert(res.msg);
+          }
+        }
+      })
+
+    });
+  });
+
+</script>
